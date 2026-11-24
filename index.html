@@ -1,164 +1,101 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Little Gift For You ♡</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاجة صغيرة ليكي ♡</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    :root {
+      --rose: #c9184a;
+      --rose-soft: #e07a8f;
+      --gold: #d4a373;
+      --text: #6b4350;
+    }
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fff8f6, #f9e6e9);
-            font-family: "Tahoma", sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #76545c;
-        }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff5f3, #fde4ea);
+      font-family: "Tahoma", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-        .card {
-            width: 100%;
-            max-width: 420px;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 35px 25px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 10px 35px rgba(160, 100, 120, 0.12);
-            border: 1px solid #f5dce2;
-        }
+    .petal {
+      position: fixed;
+      top: -40px;
+      font-size: 18px;
+      opacity: .7;
+      pointer-events: none;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
 
-        .flower {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(201, 24, 74, 0.15);
+      border: 1px solid #f8d3dc;
+    }
 
-        .small-title {
-            color: #bd8291;
-            font-size: 13px;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
+    .flower { font-size: 45px; margin-bottom: 15px; }
 
-        h1 {
-            color: #a65f75;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
+    .small-title {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
 
-        .name {
-            font-size: 27px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #bd788d;
-            margin: 20px 0;
-        }
+    h1 { color: var(--rose); font-size: 30px; margin-bottom: 20px; }
 
-        .message {
-            font-size: 16px;
-            line-height: 2.2;
-            margin: 20px 0;
-        }
+    .name {
+      font-size: 27px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rose-soft);
+      margin: 20px 0;
+    }
 
-        .line {
-            width: 60px;
-            height: 2px;
-            background: #e8c1cb;
-            margin: 25px auto;
-        }
+    .message { font-size: 17px; line-height: 2; margin: 20px 0; }
 
-        .song-title {
-            color: #a65f75;
-            margin-bottom: 15px;
-        }
+    .line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 25px auto;
+    }
 
-        button {
-            background: #bd8291;
-            color: white;
-            border: none;
-            padding: 13px 28px;
-            border-radius: 30px;
-            font-size: 15px;
-            cursor: pointer;
-        }
+    .song-title { color: var(--rose); margin-bottom: 15px; }
 
-        button:hover {
-            background: #a65f75;
-        }
+    button {
+      background: var(--rose);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(201, 24, 74, 0.3);
+      transition: transform .2s, background .2s;
+    }
+    button:hover { background: #a4133c; }
+    button:active { transform: scale(.96); }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 13px;
-            color: #bd8291;
-        }
-    </style>
-</head>
+    .footer { margin-top: 30px; font-size: 13px; color: var(--gold); }
 
-<body>
-
-    <div class="card">
-
-        <div class="flower">🌷</div>
-
-        <div class="small-title">
-            A LITTLE PAGE FOR YOU
-        </div>
-
-        <h1>حاجة صغيرة مخصوص ليكي</h1>
-
-        <div class="line"></div>
-
-        <div class="name">
-            Areej♡
-        </div>
-
-        <p class="message">
-            دي حاجة بسيطه كدا قولت اعملها عشانك وتفضل ذكرى حلوة ليكي وتفتكريني بيها
-            <br><br>
-            انتي وجودك ف حياتي دا من احلى الحاجات اللي حصلتلي واحساسه مش زي اي حاجة حصلتلتي قبل كدا,
-            أتمنى دايما تكوني معايا ونكون لبعض وتبقي زوجتي حبيبتي وقرة عيني ويعدي الوقت ونرجع نشوف الكلام دا واحنا
-            مبسوطين اننا حققنا حلمنا مع بعض.
-            <br><br>
-            ♡ بحبك وهفضل أحبك ي أحلى حاجة ف حياتي ♡
-        </p>
-
-        <div class="line"></div>
-
-        <h3 class="song-title">A song for you ♫</h3>
-
-        <audio id="song" src="الحلوة.mp3"></audio>
-
-        <button onclick="playSong()" id="playBtn">
-            ♫ اضغطي هنا
-        </button>
-
-        <div class="footer">
-            Made with care ♡
-        </div>
-
-    </div>
-
-    <script>
-        function playSong() {
-            const song = document.getElementById("song");
-            const btn = document.getElementById("playBtn");
-
-            if (song.paused) {
-                song.play();
-                btn.innerHTML = "إيقاف الأغنية ♡";
-            } else {
-                song.pause();
-                btn.innerHTML = "♫ اضغطي هنا";
-            }
-        }
-    </script>
-
-</body>
-
-</html>
+    .fade { o
