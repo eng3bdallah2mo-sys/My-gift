@@ -1,186 +1,340 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حاجة صغيرة ليكي ♡</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاجة صغيرة ليكي ♡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --rose: #c9184a;
-      --rose-soft: #e07a8f;
-      --gold: #d4a373;
-      --text: #6b4350;
-    }
+        :root {
+            --rose: #c9184a;
+            --rose-soft: #e07a8f;
+            --gold: #d4a373;
+            --text: #6b4350;
+        }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #fff5f3, #fde4ea);
-      font-family: "Tahoma", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: var(--text);
-      overflow-x: hidden;
-    }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff5f3, #fde4ea);
+            font-family: "Tahoma", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
-    /* بتلات بتنزل من فوق */
-    .petal {
-      position: fixed;
-      top: -40px;
-      opacity: .7;
-      pointer-events: none;
-      animation: fall linear infinite;
-      z-index: 0;
-    }
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(360deg); }
-    }
+        /* بتلات بتنزل من فوق */
+        .petal {
+            position: fixed;
+            top: -40px;
+            opacity: .7;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 0;
+        }
 
-    .card {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 420px;
-      background: rgba(255, 255, 255, 0.88);
-      padding: 35px 25px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 10px 35px rgba(201, 24, 74, 0.15);
-      border: 1px solid #f8d3dc;
-    }
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
 
-    .flower { font-size: 45px; margin-bottom: 15px; }
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.88);
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(201, 24, 74, 0.15);
+            border: 1px solid #f8d3dc;
+        }
 
-    .small-title {
-      color: var(--gold);
-      font-size: 13px;
-      letter-spacing: 3px;
-      margin-bottom: 15px;
-    }
+        .flower {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
 
-    h1 { color: var(--rose); font-size: 30px; margin-bottom: 20px; }
+        .small-title {
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
 
-    .name {
-      font-size: 27px;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--rose-soft);
-      margin: 20px 0;
-    }
+        h1 {
+            color: var(--rose);
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
 
-    .message { font-size: 17px; line-height: 2; margin: 20px 0; }
+        .name {
+            font-size: 27px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--rose-soft);
+            margin: 20px 0 10px;
+        }
 
-    .line {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 25px auto;
-    }
+        /* عدّاد الأيام */
+        .counter {
+            margin: 10px 0 20px;
+            font-size: 15px;
+            color: var(--rose-soft);
+        }
 
-    .song-title { color: var(--rose); margin-bottom: 15px; }
+        .counter b {
+            font-size: 28px;
+            color: var(--rose);
+            display: block;
+        }
+        .since { display: block; color: var(--gold); font-size: 17px; margin: 6px 0 10px; }
 
-    button {
-      background: var(--rose);
-      color: white;
-      border: none;
-      padding: 14px 30px;
-      border-radius: 30px;
-      font-size: 16px;
-      font-family: inherit;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(201, 24, 74, 0.3);
-      transition: transform .2s, background .2s;
-    }
-    button:hover { background: #a4133c; }
-    button:active { transform: scale(.96); }
+        .message {
+            font-size: 17px;
+            line-height: 2;
+            margin: 20px 0;
+        }
 
-    .footer { margin-top: 30px; font-size: 13px; color: var(--gold); }
+        .line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
 
-    /* ظهور تدريجي للجمل */
-    .fade { opacity: 0; transform: translateY(12px); animation: show .9s ease forwards; }
-    .d1 { animation-delay: .2s; }
-    .d2 { animation-delay: .8s; }
-    .d3 { animation-delay: 1.4s; }
-    .d4 { animation-delay: 2s; }
-    .d5 { animation-delay: 2.6s; }
-    @keyframes show { to { opacity: 1; transform: none; } }
-  </style>
+        .song-title {
+            color: var(--rose);
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: var(--rose);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(201, 24, 74, 0.3);
+            transition: transform .2s, background .2s;
+        }
+
+        button:hover {
+            background: #a4133c;
+        }
+
+        button:active {
+            transform: scale(.96);
+        }
+
+        /* زرار المفاجأة */
+        .secret-btn {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+            box-shadow: none;
+        }
+
+        .secret-btn:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        .secret {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all .8s ease;
+            line-height: 2;
+            color: var(--rose);
+            font-size: 17px;
+        }
+
+        .secret.open {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 18px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--gold);
+        }
+
+        /* ظهور تدريجي */
+        .fade {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: show .9s ease forwards;
+        }
+
+        .d1 {
+            animation-delay: .2s;
+        }
+
+        .d2 {
+            animation-delay: .8s;
+        }
+
+        .d3 {
+            animation-delay: 1.4s;
+        }
+
+        @keyframes show {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* قلوب مع كل لمسة */
+        .burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9;
+            animation: up 1.2s ease-out forwards;
+        }
+
+        @keyframes up {
+            to {
+                transform: translateY(-120px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="card">
+    <div class="card">
 
-    <div class="flower fade d1">🌷</div>
+        <div class="flower fade d1">🌷</div>
 
-    <div class="small-title fade d1">A LITTLE PAGE FOR YOU</div>
+        <div class="small-title fade d1">
+            A LITTLE PAGE FOR YOU
+        </div>
 
-    <h1 class="fade d1">حاجة صغيرة مخصوص ليكي</h1>
+        <h1 class="fade d1">حاجة صغيرة مخصوص ليكي</h1>
 
-    <div class="line"></div>
+        <div class="line"></div>
 
-    <div class="name fade d2">Areej ♡</div>
+        <div class="name fade d2">
+            Areej♡
+        </div>
 
-    <p class="message fade d3">
-      دي حاجة بسيطة كدا قولت أعملها عشانك وتفضل ذكرى حلوة ليكي وتفتكريني بيها
-    </p>
+        <div class="counter fade d2">
+            إحنا مع بعض من
+            <span class="since" id="sinceDate"></span>
+            <b id="days">0</b> يوم ♡
+        </div>
 
-    <p class="message fade d4">
-      إنتي وجودك في حياتي ده من أحلى الحاجات اللي حصلتلي، وإحساسه مش زي أي حاجة حصلتلي قبل كده.
-      أتمنى دايماً تكوني معايا ونكون لبعض، وتبقي زوجتي وحبيبتي وقرة عيني،
-      وبعدين الوقت يعدي ونرجع نشوف الكلام ده وإحنا مبسوطين إننا حققنا حلمنا مع بعض.
-    </p>
+        <p class="message fade d3">
+            دي حاجة بسيطه كدا قولت اعملها عشانك وتفضل ذكرى حلوة ليكي وتفتكريني بيها
+            <br><br>
+            انتي وجودك ف حياتي دا من احلى الحاجات اللي حصلتلي واحساسه مش زي اي حاجة حصلتلي قبل كدا، أتمنى دايما تكوني
+            معايا ونكون لبعض وتبقي روحي حبيبتي وقرة عيني وبعدي الوقت ونرجع نشوف الكلام دا واحنا مبسوطين اننا حققنا حلمنا
+            مع بعض.
+            <br><br>
+            ♡ بحبك وهفضل أحبك ي أحلى حاجة ف حياتي ♡
+        </p>
 
-    <p class="message fade d5">
-      ♡ بحبك وهفضل أحبك يا أحلى حاجة في حياتي ♡
-    </p>
+        <!-- <div class="line"></div>
 
-    <div class="line"></div>
+    <button class="secret-btn" onclick="openSecret()">💌 فيه حاجة ليكي</button>
 
-    <h3 class="song-title">A song for you 🎶</h3>
+    <div class="secret" id="secret">
+      اكتبي هنا رسالتك المفاجأة، أو وعد، أو ذكرى حلوة بينكم ♡
+    </div>
 
-    <audio id="song" src="الحلوة.mp3" preload="auto"></audio>
+    <div class="line"></div> -->
 
-    <button onclick="playSong()" id="playBtn">🎵 اضغطي هنا</button>
+        <h3 class="song-title">A song for you ♫</h3>
 
-    <div class="footer">Made with care ♡</div>
+        <audio id="song" src="الحلوة.mp3"></audio>
 
-  </div>
+        <button onclick="playSong()" id="playBtn">
+            ♫ اضغطي هنا
+        </button>
 
-  <script>
-    function playSong() {
-      const song = document.getElementById("song");
-      const btn = document.getElementById("playBtn");
+        <div class="footer">
+            Made with care ♡
+        </div>
 
-      if (song.paused) {
-        song.play().then(function () {
-          btn.innerHTML = "إيقاف الأغنية ♡";
-        }).catch(function () {
-          btn.innerHTML = "تعذر تشغيل الأغنية";
-        });
-      } else {
-        song.pause();
-        btn.innerHTML = "🎵 اضغطي هنا";
-      }
-    }
+    </div>
 
-    // بتلات بتنزل من فوق
-    (function () {
-      var items = ["🌸", "💗", "🌷", "✨"];
-      for (var i = 0; i < 14; i++) {
-        var p = document.createElement("span");
-        p.className = "petal";
-        p.textContent = items[i % items.length];
-        p.style.left = Math.random() * 100 + "vw";
-        p.style.fontSize = (14 + Math.random() * 14) + "px";
-        p.style.animationDuration = (9 + Math.random() * 9) + "s";
-        p.style.animationDelay = (-Math.random() * 12) + "s";
-        document.body.appendChild(p);
-      }
-    })();
-  </script>
+    <script>
+        // تشغيل وإيقاف الأغنية
+        function playSong() {
+            const song = document.getElementById("song");
+            const btn = document.getElementById("playBtn");
+
+            if (song.paused) {
+                song.play();
+                btn.innerHTML = "إيقاف الأغنية ♡";
+            } else {
+                song.pause();
+                btn.innerHTML = "♫ اضغطي هنا";
+            }
+        }
+        // غيّر التاريخ لتاريخ بدايتكم (سنة-شهر-يوم)
+        var start = new Date("2025-04-03");
+
+        // كتابة التاريخ نفسه
+        document.getElementById("sinceDate").textContent =
+            start.toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" });
+
+        // عدد الأيام
+        document.getElementById("days").textContent =
+            Math.floor((Date.now() - start) / 86400000);
+       
+
+        // زرار المفاجأة
+        function openSecret() {
+            document.getElementById("secret").classList.toggle("open");
+        }
+
+        // قلوب مع كل لمسة
+        function heart(x, y) {
+            for (var i = 0; i < 5; i++) {
+                var h = document.createElement("span");
+                h.className = "burst";
+                h.textContent = "💗";
+                h.style.left = (x + (Math.random() * 60 - 30)) + "px";
+                h.style.top = y + "px";
+                document.body.appendChild(h);
+                setTimeout(function (el) { el.remove(); }, 1200, h);
+            }
+        }
+        document.addEventListener("click", function (e) { heart(e.clientX, e.clientY); });
+
+        // بتلات بتنزل من فوق
+        (function () {
+            var items = ["🌸", "💗", "🌷", "✨"];
+            for (var i = 0; i < 14; i++) {
+                var p = document.createElement("span");
+                p.className = "petal";
+                p.textContent = items[i % items.length];
+                p.style.left = Math.random() * 100 + "vw";
+                p.style.fontSize = (14 + Math.random() * 14) + "px";
+                p.style.animationDuration = (9 + Math.random() * 9) + "s";
+                p.style.animationDelay = (-Math.random() * 12) + "s";
+                document.body.appendChild(p);
+            }
+        })();
+    </script>
 
 </body>
+
 </html>
